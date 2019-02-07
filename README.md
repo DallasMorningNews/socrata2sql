@@ -8,43 +8,9 @@ Plenty of state and local governments use Socrata to run their open data portals
 
 ## Installation
 
-#### Using `pipenv`
-
-1. Add our index to your project's Pipfile:
-    ```ini
-    [[source]]
-    name = "dmn"
-    url = "http://dmn-pypi.s3-website-us-east-1.amazonaws.com/"
-    verify_ssl = false
-    ```
-2. Install directly from our private package index:
-    ```sh
-    $ pipenv install tec -i dmn
-    ```
-
-#### Using `pip`
-
-1. Install directly from our private package index:
-    ```sh
-    $ pip install --find-links http://dmn-pypi.s3-website-us-east-1.amazonaws.com/tec/ --trusted-host dmn-pypi.s3-website-us-east-1.amazonaws.com tec
-    ```
-
-#### Locally (for development)
-
-Using this option you'll have the `tec` command line tool _and_ you'll be able to alter the tool's code.
-
-1. Clone the repository to your machine and step into the directory.
-
-2. Install (preferably in a virtual environment) using the included [setup.py](setup.py):
-    ```sh
-    $ pipenv install -e .
-    ```
-
-    Or using `pip`:
-
-    ```sh
-    $ pip install -e .
-    ```
+```sh
+$ (pipenv|pip) install socrata2sql
+```
 
 ## Usage
 
