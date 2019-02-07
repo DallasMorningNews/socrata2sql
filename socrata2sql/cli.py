@@ -263,10 +263,7 @@ def parse_row(row, binding):
 
 
 def main():
-    arguments = docopt(
-        __doc__,
-        version='.'.join([str(_) for _ in __version__])
-    )
+    arguments = docopt(__doc__, version=__version__)
 
     client = Socrata(arguments['<site>'], arguments['-a'])
 
