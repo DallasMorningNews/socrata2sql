@@ -1,0 +1,2 @@
+class CLIError(Exception):
+    pass
