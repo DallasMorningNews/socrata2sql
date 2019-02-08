@@ -189,7 +189,7 @@ def get_row_count(socrata_client, dataset_id):
     """Get the row count of a Socrata dataset"""
     count = socrata_client.get(
         dataset_id,
-        select='COUNT(*)'
+        select='COUNT(*) AS count'
     )
     return int(count[0]['count'])
 

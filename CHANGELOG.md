@@ -7,12 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 TK
 
-## 0.1.1 - 2019-02-08
+## 0.1.2 - 2019-02-08
+
+#### Fixed
+
+## 0.1.1 - 2019-02-07
 
 #### Added
 - README in Markdown format for PyPi
 - this [change log](https://keepachangelog.com/en/1.0.0/)
 
-## 0.1.0 - 2019-02-08
+## 0.1.0 - 2019-02-07
 
 Initial release
