@@ -5,11 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-TK
+#### Fixed
+
+- Fix missing `-d` flag in docstring PostgreSQL example
 
 ## 0.1.2 - 2019-02-08
 
 #### Fixed
+
+- Fix `KeyError` during count queries in older versions of Socrata API ([#1](https://github.com/DallasMorningNews/socrata2sql/issues/1))
 
 ## 0.1.1 - 2019-02-07
 

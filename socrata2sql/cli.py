@@ -34,8 +34,8 @@ Examples:
   from the dataset name):
   $ socrata2sql insert www.dallasopendata.com 64pp-jeba
 
-  Load it into a PostgreSQL database call mydb:
-  $ socrata2sql insert www.dallasopendata.com 64pp-jeba postgresql:///mydb
+  Load it into a PostgreSQL database called mydb:
+  $ socrata2sql insert www.dallasopendata.com 64pp-jeba -d=postgresql:///mydb
 """
 from os import path
 import re
