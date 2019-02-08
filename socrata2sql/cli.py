@@ -191,7 +191,8 @@ def get_row_count(socrata_client, dataset_id):
         dataset_id,
         select='COUNT(*)'
     )
-    return int(count[0]['count'])
+    d = count[0]
+    return int(d.get("count", d.get("COUNT")))
 
 
 def get_dataset(socrata_client, dataset_id, page_size=5000):
