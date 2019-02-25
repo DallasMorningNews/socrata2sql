@@ -3,6 +3,9 @@ import json
 
 
 def parse_datetime(str_val):
+    """Parse a Socrata floating timestamp field into a Python datetime
+
+    See https://dev.socrata.com/docs/datatypes/floating_timestamp.html"""
     if str_val == '':
         return None
 
@@ -15,6 +18,11 @@ def parse_datetime(str_val):
 
 
 def parse_geom(geo_data):
+    """Parse a variety of Socrata location types into EWKT strings
+
+    See https://dev.socrata.com/docs/datatypes/location.html and
+    https://dev.socrata.com/docs/datatypes/point.html
+    """
     if geo_data is None:
         return None
 
