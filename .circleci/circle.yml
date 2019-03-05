@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/socrata2sql
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run:
+          name: Installing socrata2sql
+          command: python setup.py install
+      - run:
+          name: Running tests
+          command: python tests.py
