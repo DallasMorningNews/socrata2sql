@@ -8,12 +8,14 @@ jobs:
       - checkout
       - run:
           name: Setting up virtual environment
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
+          command: python3 -m venv venv
       - run:
           name: Installing socrata2sql
-          command: python setup.py install
+          command: |
+            . venv/bin/activate
+            python setup.py install
       - run:
           name: Running tests
-          command: python tests.py
+          command: |
+            . venv/bin/activate
+            python tests.py
