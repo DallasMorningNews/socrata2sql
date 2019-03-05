@@ -61,6 +61,14 @@ Examples:
   $ socrata2sql insert www.dallasopendata.com 64pp-jeba -d=postgresql:///mydb
 ```
 
+## Local development
+
+There are (for now) very limited tests. They can be run with:
+
+```
+$ python setup.py tests
+```
+
 ## Copyright
 
 &copy; 2019 The Dallas Morning News
