@@ -213,9 +213,9 @@ def get_dataset(socrata_client, dataset_id, page_size=5000):
         yield api_data
 
 
-def list_datasets(socrata_client):
+def list_datasets(socrata_client, domain):
     """List all datasets on a portal using the Socrata API"""
-    all_metadata = socrata_client.datasets()
+    all_metadata = socrata_client.datasets(domains=[domain])
 
     key_fields = []
     for dataset in all_metadata:
@@ -269,7 +269,7 @@ def main():
 
     try:
         if arguments['ls']:
-            datasets = list_datasets(client)
+            datasets = list_datasets(client, arguments['<site>'])
             print(tabulate(datasets, headers='keys', tablefmt='psql'))
         elif arguments['insert']:
             dataset_id = arguments['<dataset_id>']
