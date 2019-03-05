@@ -7,6 +7,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Setting up virtual environment
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+      - run:
           name: Installing socrata2sql
           command: python setup.py install
       - run:
