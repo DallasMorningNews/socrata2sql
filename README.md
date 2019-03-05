@@ -1,4 +1,4 @@
-# 🏛️ socrata2sql ![](https://img.shields.io/pypi/v/socrata2sql.svg?style=flat) ![LICENSE](https://img.shields.io/github/license/DallasMorningNews/socrata2sql.svg?style=flat)
+# 🏛️ socrata2sql ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/DallasMorningNews/socrata2sql.svg) ![](https://img.shields.io/pypi/v/socrata2sql.svg?style=flat) ![LICENSE](https://img.shields.io/github/license/DallasMorningNews/socrata2sql.svg?style=flat)
 
 Plenty of state and local governments use Socrata to run their open data portals. This tool allows you to grab a dataset from one of these portals and copy it into a SQL database of your choice. It uses the Socrata API to understand the columns in the dataset and attempts to create correctly-typed columns in the SQL database to match, including PostGIS geometries if the database and source dataset support them.
 
