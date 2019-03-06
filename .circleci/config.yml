@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/socrata2sql
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run:
+          name: Setting up virtual environment
+          command: python3 -m venv venv
+      - run:
+          name: Installing socrata2sql
+          command: |
+            . venv/bin/activate
+            python setup.py install
+      - run:
+          name: Running tests
+          command: |
+            . venv/bin/activate
+            python tests.py
