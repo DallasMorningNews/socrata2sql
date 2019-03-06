@@ -171,6 +171,8 @@ def get_connection(db_str, dataset_metadata):
         geo_enabled = True
     except OperationalError:
         geo_enabled = False
+    except ProgrammingError:
+        geo_enabled = False
     finally:
         session.commit()
 
