@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 coverage = "*"
+twine = "*"
 
 [packages]
 psycopg2-binary = "*"
