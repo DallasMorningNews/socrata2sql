@@ -110,6 +110,11 @@ def default_db_str(dataset_metadata):
 
 
 def get_binding(socrata_client, dataset_id, dataset_metadata, geo, dest):
+    """Translate the Socrata API metadata into a SQLAlchemy binding
+
+    This looks at each column type in the Socrata API response and creates a
+    SQLAlchemy binding with columns to match. For now it fails loudly if it
+    encounters a column type we've yet to map to its SQLAlchemy type."""
     if dest is None:
         table_name = get_table_name(dataset_metadata['name'])
     else:
@@ -150,6 +155,10 @@ def get_binding(socrata_client, dataset_id, dataset_metadata, geo, dest):
 
 
 def get_connection(db_str, dataset_metadata):
+    """Get a DB connection from the CLI args and Socrata API metadata
+
+    Uess the DB URL passed in by the user to generate a database connection.
+    By default, returns a local SQLite database."""
     if db_str is not None:
         engine = create_engine(db_str)
         ui.header('Connecting to database')
@@ -278,9 +287,12 @@ def main():
                 client, dataset_id, metadata, geo, arguments['-t']
             )
 
+            # Create the table
             try:
                 Binding.__table__.create(engine)
             except ProgrammingError as e:
+                # Catch these here because this is our first attempt to
+                # actually use the DB
                 if 'already exists' in str(e):
                     raise CLIError(
                         'Destination table already exists. Specify a new table'
@@ -291,6 +303,7 @@ def main():
             num_rows = get_row_count(client, dataset_id)
             bar = FillingCirclesBar('  ▶ Loading from API', max=num_rows)
 
+            # Iterate the dataset and INSERT each page
             for page in get_dataset(client, dataset_id):
                 to_insert = []
                 for row in page:
