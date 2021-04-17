@@ -310,6 +310,7 @@ def main():
                     to_insert.append(Binding(**parse_row(row, Binding)))
 
                 session.add_all(to_insert)
+                session.flush()
                 bar.next(n=len(to_insert))
 
             bar.finish()
